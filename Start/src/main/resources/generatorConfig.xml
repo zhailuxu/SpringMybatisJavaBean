@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry
+		location="/Users/zhuizhumengxiang/.m2/repository/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar" />
+
+	<!-- 生成网商法院dal配置 -->
+	<context id="lassen" targetRuntime="MyBatis3">
+		<property name="suppressAllComments" value="true" />
+		<property name="useActualColumnNames" value="false" />
+
+		<!-- 配置插件 -->
+		<property name="basePath"
+			value="/Users/zhuizhumengxiang/workspace/mytool/distributtransaction/deep-learn-java/start/src/main/java" />
+		<!-- 配置数据库连接 -->
+		<!-- <jdbcConnection driverClass="org.gjt.mm.mysql.Driver" connectionURL="jdbc:mysql://pub-m-uf67afdc46e0ab04.petadata.rds.aliyuncs.com:3306/massdevice" 
+			userId="mass_device" password="massdevice2017" /> -->
+		<jdbcConnection driverClass="org.gjt.mm.mysql.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/test" userId="root"
+			password="123456" />
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 生成文件位置 -->
+		<javaModelGenerator
+			targetPackage="com.zlx.user.dal.model" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator
+			targetPackage="mapper" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.zlx.user.dal.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 会员账号法人信息扩展表 -->
+		<table tableName="course" domainObjectName="CourseDO">
+			<!-- 使用stateAction模式，默认为false -->
+			<!-- 充血模型中，Bo与Do一一对应，这里指定Bo包名，用于生成getBo方法 -->
+
+			<!-- <ignoreColumn column="GMT_CREATE" /> <ignoreColumn column="CREATOR" 
+				/> <ignoreColumn column="GMT_MODIFIED" /> <ignoreColumn column="MODIFIER" 
+				/> <ignoreColumn column="IS_DELETED" /> <ignoreColumn column="status" /> -->
+
+		</table>
+	</context>
+</generatorConfiguration>
